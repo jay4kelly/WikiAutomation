@@ -45,8 +45,8 @@ Cucumber is used to perform Acceptance testing in this project.
 
 Features
 
-Purchase.feature  (in progress)
-Cart.feature (TBD
+- Purchase.feature  (in progress)
+- Cart.feature (TBD
 
 ## Logging
 
