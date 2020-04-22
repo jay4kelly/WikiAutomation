@@ -14,9 +14,9 @@ Demonstrate use of the following testing technologies and procedures as part of 
 
 ## WikiStore Web Site to be tested
 
-[WikiStore URL]: https://store.wikimedia.org
+https://store.wikimedia.org
 
-[<img src="https://github.com/jay4kelly/WikiAutomation/resources/blob/master/WikiStoreSite.PNG">](https://github.com/)
+<img src="resources/WikiStoreSite.png" width=800>
 
 ## Page Object Design
 
