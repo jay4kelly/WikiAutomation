@@ -12,6 +12,12 @@ Demonstrate use of the following testing technologies and procedures as part of 
 - Log4J2 (logging)
 - CircleCI (continuous build integration) TBD
 
+## WikiStore Web Site to be tested
+
+[WikiStore URL]: https://store.wikimedia.org
+
+[<img src="https://github.com/jay4kelly/WikiAutomation/resources/blob/master/WikiStoreSite.PNG">](https://github.com/)
+
 ## Page Object Design
 
 Page Object model is an object design pattern in Selenium. Web pages are represented as classes, and elements on the page are defined as variables on the class, so user interactions can then be implemented as methods on the class.

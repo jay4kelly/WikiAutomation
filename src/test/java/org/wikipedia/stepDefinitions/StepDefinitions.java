@@ -35,22 +35,22 @@ public class StepDefinitions extends BaseTest {
 		initializeDriver();
 	}
 
-//	@Given("^User is on \"([^\"]*)\" site$")
-//	public void user_is_on_something_site(String strArg1) throws IOException {
-//		log.info("Go to Home Page");
-//		//For Home Page, navigate to page, for others, just check that it is displayed
-//		if (BasePage.HOME_PAGE.equalsIgnoreCase(strArg1)) {
-//			homePage = new HomePage(driver);
-//			homePage.openHomePage();
-//		} else if (BasePage.CART_PAGE.equalsIgnoreCase(strArg1)) {
-//			cartPage = new CartPage(driver);
-//			Assert.assertTrue("Cart page not displayed", cartPage.isPageOpened());
-//		}
-//		else {
-//			Assert.assertTrue("Unknown web page: " + strArg1, false);
-//		}
-//		driver.get(prop.getBaseURL());
-//	}
+	@Given("^User is on \"([^\"]*)\" site$")
+	public void user_is_on_something_site(String strArg1) throws IOException {
+		log.info("Go to Home Page");
+		//For Home Page, navigate to page, for others, just check that it is displayed
+		if (BasePage.HOME_PAGE.equalsIgnoreCase(strArg1)) {
+			homePage = new HomePage(driver);
+			homePage.openHomePage();
+		} else if (BasePage.CART_PAGE.equalsIgnoreCase(strArg1)) {
+			cartPage = new CartPage(driver);
+			Assert.assertTrue("Cart page not displayed", cartPage.isPageOpened());
+		}
+		else {
+			Assert.assertTrue("Unknown web page: " + strArg1, false);
+		}
+		driver.get(prop.getBaseURL());
+	}
 
 	@Given("^User has added (.+) of (.+) and (.+) to cart$")
 	public void user_has_added_of_and_to_cart(String product, String size, String quanity) throws IOException {
