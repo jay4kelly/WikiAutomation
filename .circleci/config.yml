@@ -24,7 +24,7 @@ jobs: # a collection of steps
  
       - run: ls -al
       - run: pwd
-      - run: cd /usr
+      - run: cd /
       - run: ls -al
       - run: mvn test -PFull # run the actual tests
       
