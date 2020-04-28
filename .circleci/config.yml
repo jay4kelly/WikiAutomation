@@ -5,7 +5,7 @@ jobs: # a collection of steps
     working_directory: ~/working-dir # directory where steps will run
 
     docker: # run the steps with Docker
-      - image: circleci/openjdk:8-jdk-stretch # ...with this image as the primary container; this is where all `steps` will run
+      - image: circleci/openjdk:8-jdk-stretch-browsers # ...with this image as the primary container; this is where all `steps` will run
 
     steps: # a collection of executable commands
 
@@ -21,6 +21,10 @@ jobs: # a collection of steps
           paths:
             - ~/.m2
           key: working-dir-{{ checksum "pom.xml" }}
+ 
+      - run: ls -al
+      - run: pwd
+      - run: cd usr
       - run: ls -al
       - run: mvn test -PFull # run the actual tests
       
