@@ -17,22 +17,40 @@ jobs: # a collection of steps
       
       - run: mvn dependency:go-offline # gets the project dependencies
       
+ 
+ 
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
           key: working-dir-{{ checksum "pom.xml" }}
  
+      # Debugging
       - run: ls -al
       - run: pwd
-      - run: cd /
-      - run: ls -al
+
+      - run:
+          name: Install latest version of ChromeDriver Sample
+          command: |
+            sudo wget https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip
+            sudo unzip chromedriver_linux64.zip
+            sudo rm chromedriver_linux64.zip
+            sudo mv chromedriver /usr/bin/
+            sudo chmod 777 /usr/bin/chromedriver
+           # sudo apt-get install libxi6 libgconf-2-4
+           # sudo apt-get -y install xvfb gtk2-engines-pixbuf
+           # sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+           # sudo apt-get install xvfb
+           # sudo apt-get -y install imagemagick x11-apps
+      
       - run: mvn test -PFull # run the actual tests
       
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
       # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: target/surefire-reports
       
-   #   - store_artifacts: # store the uberjar as an artifact
+      - store_artifacts: # uploads the log files
       # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-    #      path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: logs
+                 
+      
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples  
