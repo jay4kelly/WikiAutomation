@@ -73,7 +73,9 @@ public class TestProperties {
 	}
 	
 	public boolean isCircleCIBuild() {
-		String circle = System.getProperty(CIRCLE_STAGE);
+		String circle = System.getenv(CIRCLE_STAGE);
+		log.info("System.getenv(CIRCLE_STAGE) value: " + circle);
+
 		boolean result;
 		if ((circle != null) && (circle.length() != 0)){
 			result = true;
