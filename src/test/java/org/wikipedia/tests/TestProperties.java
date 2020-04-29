@@ -22,9 +22,9 @@ public class TestProperties {
 	// Properties
 	private static String BROWSER = "browser";
 	private static String HEADLESS = "headless";
-	private static String CHROME_DRIVER_LOCATION = "chrome_driver_location";
+	private static String MAC_CHROME_DRIVER_LOCATION = "mac_chrome_driver_location";
 	private static String CIRCLE_CI_CHROME_DRIVER_LOCATION = "circleci_chrome_driver_location";
-	private static String FIREFOX_DRIVER_LOCATION = "firefox_driver_location";
+	private static String MAC_FIREFOX_DRIVER_LOCATION = "mac_firefox_driver_location";
 	protected static String URL = "url";
 	
 
@@ -114,15 +114,15 @@ public class TestProperties {
 		return Boolean.parseBoolean(prop.getProperty(HEADLESS));
 	}
 
-	public String getChromeDriverLocation() {
-		return prop.getProperty(CHROME_DRIVER_LOCATION);
+	public String getMACChromeDriverLocation() {
+		return prop.getProperty(MAC_CHROME_DRIVER_LOCATION);
 	}
 	
 	public String getCircleciChromeDriverLocation() {
 		return prop.getProperty(CIRCLE_CI_CHROME_DRIVER_LOCATION);
 	}
 	
-	public String getFirefoxDriverLocation() {
-		return prop.getProperty(FIREFOX_DRIVER_LOCATION);
+	public String getMACFirefoxDriverLocation() {
+		return prop.getProperty(MAC_FIREFOX_DRIVER_LOCATION);
 	}
 }

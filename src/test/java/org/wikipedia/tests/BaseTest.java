@@ -40,7 +40,7 @@ public class BaseTest {
 				System.setProperty("webdriver.chrome.driver", prop.getCircleciChromeDriverLocation());				
 			}else
 			{
-				System.setProperty("webdriver.chrome.driver", prop.getChromeDriverLocation());				
+				System.setProperty("webdriver.chrome.driver", prop.getMACChromeDriverLocation());				
 			}
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(prop.useHeadless());
@@ -50,7 +50,7 @@ public class BaseTest {
 			SafariOptions options = new SafariOptions();
 			driver = new SafariDriver(options);
 		} else if (prop.useFirefoxBrowser()) {
-			System.setProperty("webdriver.gecko.driver", prop.getFirefoxDriverLocation());
+			System.setProperty("webdriver.gecko.driver", prop.getMACFirefoxDriverLocation());
 			FirefoxOptions options = new FirefoxOptions();
 			options.setHeadless(prop.useHeadless());
 			driver = new FirefoxDriver();
