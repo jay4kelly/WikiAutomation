@@ -37,7 +37,7 @@ public class TestProperties {
 	public static String FIREFOX = "firefox";
 
 	//circleci property used to detect if build is running on circleci
-	private static String CIRCLE_STAGE = "CIRCLE_STAGE";
+	private static String WIKI_BUILD_ON_CIRCLE = "WIKI_BUILD_ON_CIRCLE";
 	
 	public TestProperties() throws IOException {
 		try {
@@ -73,9 +73,7 @@ public class TestProperties {
 	}
 	
 	public boolean isCircleCIBuild() {
-		String circle = System.getenv(CIRCLE_STAGE);
-		log.info("System.getenv(CIRCLE_STAGE) value: " + circle);
-
+		String circle = System.getenv(WIKI_BUILD_ON_CIRCLE);
 		boolean result;
 		if ((circle != null) && (circle.length() != 0)){
 			result = true;
