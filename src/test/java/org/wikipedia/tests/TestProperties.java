@@ -23,8 +23,10 @@ public class TestProperties {
 	private static String BROWSER = "browser";
 	private static String HEADLESS = "headless";
 	private static String CHROME_DRIVER_LOCATION = "chrome_driver_location";
+	private static String CIRCLE_CI_CHROME_DRIVER_LOCATION = "circleci_chrome_driver_location";
 	private static String FIREFOX_DRIVER_LOCATION = "firefox_driver_location";
 	protected static String URL = "url";
+	
 
 	// PROPERTY VALUES
 	private static String TRUE_VALUE = "true";
@@ -34,6 +36,9 @@ public class TestProperties {
 	public static String SAFARI = "safari";
 	public static String FIREFOX = "firefox";
 
+	//circleci property used to detect if build is running on circleci
+	private static String CIRCLE_STAGE = "CIRCLE_STAGE";
+	
 	public TestProperties() throws IOException {
 		try {
 			logPlatformInfo();
@@ -65,6 +70,18 @@ public class TestProperties {
 			}
 			loggedEnv = true;
 		}
+	}
+	
+	public boolean isCircleCIBuild() {
+		String circle = System.getProperty(CIRCLE_STAGE);
+		boolean result;
+		if ((circle != null) && (circle.length() != 0)){
+			result = true;
+		}else
+		{
+			result = false;
+		}
+		return result;
 	}
 	
 	private void loadPropertyFile() throws IOException {
@@ -100,7 +117,11 @@ public class TestProperties {
 	public String getChromeDriverLocation() {
 		return prop.getProperty(CHROME_DRIVER_LOCATION);
 	}
-
+	
+	public String getCircleciChromeDriverLocation() {
+		return prop.getProperty(CIRCLE_CI_CHROME_DRIVER_LOCATION);
+	}
+	
 	public String getFirefoxDriverLocation() {
 		return prop.getProperty(FIREFOX_DRIVER_LOCATION);
 	}

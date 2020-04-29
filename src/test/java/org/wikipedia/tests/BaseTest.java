@@ -32,10 +32,16 @@ public class BaseTest {
 	public void initializeDriver() throws Exception {
 
 		prop = new TestProperties();
-		//TODO add option to get parameters from CI parameters that override property file
 		
 		if (prop.useChromeBrowser()) {
-			System.setProperty("webdriver.chrome.driver", prop.getChromeDriverLocation());
+			if(prop.isCircleCIBuild())
+			{
+				log.info("Build is running on circleci");
+				System.setProperty("webdriver.chrome.driver", prop.getCircleciChromeDriverLocation());				
+			}else
+			{
+				System.setProperty("webdriver.chrome.driver", prop.getChromeDriverLocation());				
+			}
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(prop.useHeadless());
 			driver = new ChromeDriver(options);
