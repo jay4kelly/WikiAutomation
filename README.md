@@ -10,7 +10,7 @@ Demonstrate use of the following testing technologies and procedures as part of 
 - Page Object Design (shared between TestNG and Cucumber)
 - Maven (build and test)
 - Log4J2 (logging)
-- CircleCI (continuous build integration) TBD
+- CircleCI (continuous build integration) 
 
 ## WikiStore Web Site to be tested
 
@@ -53,6 +53,20 @@ Features
 
 - Purchase.feature  (in progress)
 - Cart.feature (TBD
+
+## CircleCI
+CircleCI is Continuous Integration, a development practice which is being used by software teams allowing them to to build, test and deploy applications easier and quicker on multiple platforms.
+
+CircleCI provides the following services for this project each time a GitHub merge is performed to any of the WikiAutomation project branches:
+
+- Code is copied to CircleCI
+- Docker environment including browsers is spun up
+- Browser drivers are installed using curl
+- Project is built (Maven)
+- Maven dependencies are cached for reuse in future builds. Caching is refreshed when pom file is changed.
+- TestNG regression tests and Cucumber Acceptance tests are run (Maven)
+- Test results and log files are loaded back to the CircleCI dashboard for viewing
+ - TBD: Test result viewer is not quite as good as it should be. The old dashboard will show the failures but the new CircleCI dashboard does not. Will look to see if test result viewing can be improved. Should at least be as good as the TestNG test result viewer plugin for Jenkins.
 
 ## Logging
 
