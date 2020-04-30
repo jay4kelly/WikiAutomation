@@ -29,24 +29,10 @@ jobs: # a collection of steps
                sudo rm chromedriver_linux64.zip
                sudo mv chromedriver /usr/local/bin/
                sudo chmod 777 /usr/local/bin/chromedriver
-               #sudo apt-get install libxi6 libgconf-2-4
-               #sudo apt-get -y install xvfb gtk2-engines-pixbuf
-               #sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
-               #sudo apt-get install xvfb
-               #sudo apt-get -y install imagemagick x11-apps
-               
-      -  run:
-          name: Running X virtual framebuffer
-          command: Xvfb :0 -ac &
-          
-      - run:
-          name: Run Tests
-          command: |
-           export DISPLAY=:99
            
       - run:
           name: Run Maven Tests
-          command: mvn test -PFull # run the actual tests
+          command: mvn test -PRegression # run the actual tests
           
       - run:
           name: Save test results
