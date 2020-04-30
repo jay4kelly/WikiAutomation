@@ -82,14 +82,14 @@ public class StepDefinitions extends BaseTest {
 
 	@And("^Completes Check out$")
 	public void completes_check_out() throws Throwable {
-		//TBD add checkout process but do not complete final step that submits purchase to WikiStore
+		//TODO add checkout process but do not complete final step that submits purchase to WikiStore
 	}
 
 	
 	@Given("Cart is empty")
 	public void cart_is_empty() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		//TODO implement
 	}
 
 	@Given("User performs the following purchases and cart actions")
@@ -101,7 +101,7 @@ public class StepDefinitions extends BaseTest {
 	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
 	    //
 	    // For other transformations you can register a DataTableType.
-	    throw new io.cucumber.java.PendingException();
+		//TODO implement
 	}
 
 	@Then("User should have the following left in cart")
@@ -113,7 +113,7 @@ public class StepDefinitions extends BaseTest {
 	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
 	    //
 	    // For other transformations you can register a DataTableType.
-	    throw new io.cucumber.java.PendingException();
+		//TODO implement
 	}
 	
 	@After
