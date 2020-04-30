@@ -1,18 +1,26 @@
 version: 2.1 # use CircleCI 2.1
 jobs: # a collection of steps
    build: # runs not using Workflows must have a `build` job as entry point
+   
       docker: # run the steps with Docker
       -  image: circleci/openjdk:8-jdk-stretch-browsers # ...with this image as the primary container; this is where all `steps` will run
+      
       working_directory: ~/working-dir # directory where steps will run
+      
       steps: # a collection of executable commands
+      
       - checkout # check out source code to working directory
+      
       -  restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
             key: working-dir-{{ checksum "pom.xml" }}
+            
       -  run: mvn dependency:go-offline # gets the project dependencies
+      
       -  save_cache: # saves the project dependencies
             paths:
             - ~/.m2
             key: working-dir-{{ checksum "pom.xml" }}
+            
       -  run:
            name: Install latest version of ChromeDriver Sample
            command: |
@@ -26,23 +34,32 @@ jobs: # a collection of steps
                sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
                sudo apt-get install xvfb
                sudo apt-get -y install imagemagick x11-apps
+               
       -  run:
           name: Running X virtual framebuffer
           command: Xvfb :0 -ac &
+          
       - run:
           name: Run Tests
           command: |
-            export DISPLAY=:99              
-      - run: mvn test -PFull # run the actual tests
+            export DISPLAY=:99 
+                         
+      - run:
+          name: Run Maven Tests
+          command: mvn test -PFull # run the actual tests
+          
       - run:
           name: Save test results
           command: |
             mkdir -p ~/test-results/junit/
             find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
           when: always
+          
       - store_test_results:
           path: ~/test-results
+          
       - store_artifacts:
-          path: ~/test-results/junit    
+          path: ~/test-results/junit 
+             
       - store_artifacts: # uploads the log files
             path: logs
