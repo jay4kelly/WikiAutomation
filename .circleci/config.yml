@@ -23,8 +23,8 @@ jobs: # a collection of steps
                sudo wget https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip
                sudo unzip chromedriver_linux64.zip
                sudo rm chromedriver_linux64.zip
-               sudo mv chromedriver /usr/bin/
-               sudo chmod 777 /usr/bin/chromedriver
+               sudo mv chromedriver /usr/local/bin/
+               sudo chmod 777 /usr/local/bin/chromedriver
       - run: mvn test -PFull # run the actual tests
       - run:
           name: Save test results
