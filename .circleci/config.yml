@@ -8,15 +8,11 @@ jobs: # a collection of steps
       - checkout # check out source code to working directory
       -  restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
             key: working-dir-{{ checksum "pom.xml" }}
-# Debugging
       -  run: mvn dependency:go-offline # gets the project dependencies
       -  save_cache: # saves the project dependencies
-# Read about caching dependencies: https://circleci.com/docs/2.0/caching/
             paths:
             - ~/.m2
             key: working-dir-{{ checksum "pom.xml" }}
-      -  run: ls -al
-      -  run: pwd
       -  run:
            name: Install latest version of ChromeDriver Sample
            command: |
@@ -25,6 +21,18 @@ jobs: # a collection of steps
                sudo rm chromedriver_linux64.zip
                sudo mv chromedriver /usr/local/bin/
                sudo chmod 777 /usr/local/bin/chromedriver
+               sudo apt-get install libxi6 libgconf-2-4
+               sudo apt-get -y install xvfb gtk2-engines-pixbuf
+               sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+               sudo apt-get install xvfb
+               sudo apt-get -y install imagemagick x11-apps
+      -  run:
+          name: Running X virtual framebuffer
+          command: Xvfb :0 -ac &
+      - run:
+          name: Run Tests
+          command: |
+            export DISPLAY=:99              
       - run: mvn test -PFull # run the actual tests
       - run:
           name: Save test results
@@ -36,5 +44,5 @@ jobs: # a collection of steps
           path: ~/test-results
       - store_artifacts:
           path: ~/test-results/junit    
-      -  store_artifacts: # uploads the log files
+      - store_artifacts: # uploads the log files
             path: logs
