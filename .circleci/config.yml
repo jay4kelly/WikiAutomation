@@ -49,7 +49,7 @@ jobs: # a collection of steps
           path: ~/test-results
           
       - store_artifacts:
-          path: ~/target/surefire-reports
+          path: target/surefire-reports
           
       - store_artifacts:
           path: ~/test-results/junit 
