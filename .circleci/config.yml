@@ -36,7 +36,7 @@ jobs: # a collection of steps
                echo $WIKI_MAVEN_TEST_PROFILE
       - run:
           name: Run Maven Tests
-          command: mvn test -P$WIKI_MAVEN_TEST_PROFILE # run the actual tests
+          command: mvn test -P${WIKI_MAVEN_TEST_PROFILE} # run the actual tests
           
       - run:
           name: Save test results
