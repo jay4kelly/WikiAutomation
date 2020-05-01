@@ -33,10 +33,10 @@ jobs: # a collection of steps
       - run:
           name: Check out environment variable for profile
           command:
-               echo $WIKI_MAVEN_TEST_PROFILE
+               echo ${WIKI_MAVEN_TEST_PROFILE}
       - run:
           name: Run Maven Tests
-          command: mvn test -P${WIKI_MAVEN_TEST_PROFILE} # run the actual tests
+          command: mvn test -PFull # run the actual tests
           
       - run:
           name: Save test results
