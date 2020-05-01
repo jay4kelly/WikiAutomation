@@ -59,14 +59,15 @@ CircleCI is Continuous Integration, a development practice which is being used b
 
 CircleCI provides the following services for this project each time a GitHub merge is performed to any of the WikiAutomation project branches:
 
-- Code is copied to CircleCI
 - Docker environment including browsers is spun up
+- Code is copied to CircleCI
 - Browser drivers are installed using curl
-- Project is built (Maven)
 - Maven dependencies are cached for reuse in future builds. Caching is refreshed when pom file is changed.
 - TestNG regression tests and Cucumber Acceptance tests are run (Maven)
 - Test results and log files are loaded back to the CircleCI dashboard for viewing
  - TBD: Test result viewer is not quite as good as it should be. The old dashboard will show the failures but the new CircleCI dashboard does not. Will look to see if test result viewing can be improved. Should at least be as good as the TestNG test result viewer plugin for Jenkins.
+ 
+ [Latest circleci builds](https://circleci.com/gh/jay4kelly/workflows/WikiAutomation)
 
 ## Logging
 
