@@ -64,8 +64,8 @@ CircleCI provides the following services for this project each time a GitHub mer
 - Browser drivers are installed using curl
 - Maven dependencies are cached for reuse in future builds. Caching is refreshed when pom file is changed.
 - TestNG regression tests and Cucumber Acceptance tests are run (Maven)
-- Test results and log files are loaded back to the CircleCI dashboard for viewing
- - TBD: Test result viewer is not quite as good as it should be. The old dashboard will show the failures but the new CircleCI dashboard does not. Will look to see if test result viewing can be improved. Should at least be as good as the TestNG test result viewer plugin for Jenkins.
+- Test results and log files are loaded back to the CircleCI dashboard for viewing. You need to go to the artifact tab and click on the html files to load them to view
+
  
  [Latest circleci builds](https://circleci.com/gh/jay4kelly/workflows/WikiAutomation)
 
