@@ -38,21 +38,11 @@ jobs: # a collection of steps
           name: Run Maven Tests
           command: mvn test -PFull # run the actual tests
           
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
-          when: always
-          
       - store_test_results:
-          path: ~/test-results
+          path: target/surefire-reports  # uploads the xml test results for circleci integration
           
       - store_artifacts:
-          path: target/surefire-reports
-          
-      - store_artifacts:
-          path: ~/test-results/junit 
+          path: target/surefire-reports  # uploads the surefire test results
              
       - store_artifacts: # uploads the log files
             path: logs
