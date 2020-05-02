@@ -49,7 +49,6 @@ public class StepDefinitions extends BaseTest {
 		else {
 			Assert.assertTrue("Unknown web page: " + strArg1, false);
 		}
-		driver.get(prop.getBaseURL());
 	}
 
 	@Given("^User has added (.+) of (.+) and (.+) to cart$")
