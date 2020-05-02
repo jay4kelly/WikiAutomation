@@ -86,7 +86,7 @@ public class TestProperties {
 	}
 
 	private boolean isWindows() {
-		return getOperatingSystem().contains("win");
+		return getOperatingSystem().contains("Win");
 	}
 	
 	public boolean getlogSystemProperties() {
