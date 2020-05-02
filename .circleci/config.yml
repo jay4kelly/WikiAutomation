@@ -31,12 +31,8 @@ jobs: # a collection of steps
                sudo chmod 777 /usr/local/bin/chromedriver
            
       - run:
-          name: Check out environment variable for profile
-          command:
-               echo ${WIKI_MAVEN_TEST_PROFILE}
-      - run:
           name: Run Maven Tests
-          command: mvn test -PFull # run the actual tests
+          command: mvn test -PFull # run the actual full profile (acceptance and regression)
           
       - store_test_results:
           path: target/surefire-reports  # uploads the xml test results for circleci integration
