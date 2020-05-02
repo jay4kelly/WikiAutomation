@@ -32,16 +32,8 @@ public class BaseTest {
 	public void initializeDriver() throws Exception {
 
 		prop = new TestProperties();
-		
 		if (prop.useChromeBrowser()) {
-			if(prop.isCircleCIBuild())
-			{
-				log.info("Build is running on circleci");
-				System.setProperty("webdriver.chrome.driver", prop.getCircleciChromeDriverLocation());				
-			}else
-			{
-				System.setProperty("webdriver.chrome.driver", prop.getMACChromeDriverLocation());				
-			}
+			System.setProperty("webdriver.chrome.driver", prop.getChromeDriverLocation());				
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(prop.useHeadless());
 			driver = new ChromeDriver(options);
@@ -50,7 +42,7 @@ public class BaseTest {
 			SafariOptions options = new SafariOptions();
 			driver = new SafariDriver(options);
 		} else if (prop.useFirefoxBrowser()) {
-			System.setProperty("webdriver.gecko.driver", prop.getMACFirefoxDriverLocation());
+			System.setProperty("webdriver.gecko.driver", prop.getFirefoxDriverLocation());
 			FirefoxOptions options = new FirefoxOptions();
 			options.setHeadless(prop.useHeadless());
 			driver = new FirefoxDriver();
