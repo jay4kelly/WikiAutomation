@@ -32,6 +32,11 @@ public class HomePage extends BasePage{
 	@FindBy(xpath="//div[@id='bs-example-navbar-collapse-1']//a[contains(text(),'Men')]")
 	private WebElement mensDepartment;
 	
+	@FindBy(xpath="//div[@id='bs-example-navbar-collapse-1']//a[contains(text(),'Wiki15')]")
+	private WebElement wiki15Department;
+	
+	@FindBy(xpath="//div[@id='bs-example-navbar-collapse-1']//a[contains(text(),'Accessories')]")
+	private WebElement accessoriesDepartment;
 	
 	public HomePage(WebDriver driver) throws IOException {
 		super();
@@ -65,6 +70,14 @@ public class HomePage extends BasePage{
 		return mensDepartment.isDisplayed();
 	}
 	
+	public boolean isAccessoriesDepartmentDisplayed() {
+		return accessoriesDepartment.isDisplayed();
+	}
+	
+	public boolean isWiki15DepartmentDisplayed() {
+		return wiki15Department.isDisplayed();
+	}
+	
 	
 	// Navigation Operations sections
 	
@@ -86,5 +99,11 @@ public class HomePage extends BasePage{
 		mensDepartment.click();
 	}	
 	
+	public void clickAccessoriesDepartment() {
+		accessoriesDepartment.click();
+	}
 	
+	public void clickWiki15Department() {
+		wiki15Department.click();
+	}
 }

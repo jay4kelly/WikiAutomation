@@ -7,10 +7,13 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.wikipedia.tests.BaseTest;
+import org.wikipedia.webpages.AccessoriesPage;
 import org.wikipedia.webpages.BasePage;
 import org.wikipedia.webpages.CartPage;
 import org.wikipedia.webpages.HomePage;
+import org.wikipedia.webpages.MenPage;
 import org.wikipedia.webpages.ProductDetailsPage;
+import org.wikipedia.webpages.Wiki15Page;
 import org.wikipedia.webpages.WomenPage;
 
 import io.cucumber.java.After;
@@ -26,6 +29,9 @@ public class StepDefinitions extends BaseTest {
 
 	HomePage homePage = null;
 	WomenPage womenPage = null;
+	MenPage menPage = null;
+	AccessoriesPage accessoriesPage = null;
+	Wiki15Page wiki15Page = null;
 	ProductDetailsPage productPage = null;
 	CartPage cartPage = null;
 	
@@ -35,7 +41,7 @@ public class StepDefinitions extends BaseTest {
 		initializeDriver();
 	}
 
-	@Given("^User is on \"([^\"]*)\" site$")
+	@Given("^User is on \"([^\"]*)\" site$")  // Write out
 	public void user_is_on_something_site(String strArg1) throws IOException {
 		log.info("Go to Home Page");
 		//For Home Page, navigate to page, for others, just check that it is displayed

@@ -36,7 +36,9 @@ public class ValidateHomePage extends BaseTest{
 		//Place elements in order starting at the top and left to right
 		Assert.assertTrue(hp.isSearchDisplayed(),"search is not displayed");
 		Assert.assertTrue(hp.isWomensDepartmentDisplayed(),"womens dept is not displayed");
-		Assert.assertTrue(hp.isMensDepartmentDisplayed(),"mens is not displayed");
+		Assert.assertTrue(hp.isMensDepartmentDisplayed(),"mens dept is not displayed");
+		Assert.assertTrue(hp.isAccessoriesDepartmentDisplayed(),"accessories dept is not displayed");
+		Assert.assertTrue(hp.isWiki15DepartmentDisplayed(),"wiki15 dept is not displayed");
 		//TBD add rest of home page elements to check
 		log.info("All elements exist on home page.");
 
