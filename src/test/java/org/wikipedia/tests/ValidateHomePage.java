@@ -41,8 +41,9 @@ public class ValidateHomePage extends BaseTest {
 		Assert.assertTrue(hp.isWomensDepartmentDisplayed(), "womens dept is not displayed");
 		Assert.assertTrue(hp.isMensDepartmentDisplayed(), "mens dept is not displayed");
 		Assert.assertTrue(hp.isAccessoriesDepartmentDisplayed(), "accessories dept is not displayed");
-		Assert.assertTrue(hp.isWiki15DepartmentDisplayed(), "wiki15 dept is not displayed");
 		Assert.assertTrue(hp.isKidsDepartmentDisplayed(), "kids dept is not displayed");
+		Assert.assertTrue(hp.isWiki15DepartmentDisplayed(), "wiki15 dept is not displayed");
+		
 		// TBD add rest of home page elements to check
 		log.info("All elements exist on home page.");
 

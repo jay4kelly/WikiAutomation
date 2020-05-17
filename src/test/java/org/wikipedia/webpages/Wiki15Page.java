@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Wiki15Page extends BaseProductPage {
 
-	private static String WIKI15 = "Wikipedia15"; // website dosent follow its naming scheme
+	private static String WIKI15 = "Wikipedia15"; // website doesn't follow its naming scheme
 	private static Logger log = LogManager.getLogger(Wiki15Page.class.getName());
 
 	// Page WebElements are arranged by location on page starting from the top
