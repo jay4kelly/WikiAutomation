@@ -29,8 +29,8 @@ public class BaseProductPage extends BasePage {
 
 	public boolean isPageOpened() { 
 		WebElement element = activeBreadCrumb;
-		String value = element.getText();
-		boolean result = value.contains(breadCrumb);
+		String value = element.getText();			
+		boolean result = value.contains(breadCrumb); 
 		return result;
 	}
 }
